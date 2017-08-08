@@ -3,6 +3,8 @@ class Board
 
   def initialize(name1, name2)
     @cups = Array.new(14) { [] }
+    @name1 = name1
+    @name2 = name2
     place_stones
   end
 
@@ -23,15 +25,34 @@ class Board
   end
 
   def make_move(start_pos, current_player_name)
-    stone_count = @cups[start_pos].count
+    stones = @cups[start_pos]
     @cups[start_pos] = []
-    stone_count.times do |i|
-      @cups[(start_pos + 1 + i) % @cups.count] << :stone
+    cup_idx = start_pos
+    until stones.empty?
+      cup_idx += 1
+      cup_idx = 0 if cup_idx > 13
+      case cup_idx
+      when 6
+        @cups[cup_idx] << stones.pop if current_player_name == @name1
+      when 13
+        @cups[cup_idx] << stones.pop if current_player_name == @name2
+      else
+        @cups[cup_idx] << stones.pop
+      end
     end
+    render
+    next_turn(cup_idx)
   end
 
   def next_turn(ending_cup_idx)
     # helper method to determine what #make_move returns
+    if ending_cup_idx == 6 || ending_cup_idx == 3
+      :prompt
+    elsif @cups[ending_cup_idx] = [:stone]
+      :switch
+    else
+      ending_cup_idx
+    end
   end
 
   def render
