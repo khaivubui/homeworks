@@ -62,3 +62,8 @@ class Mancala
     puts " 1   2   3   4   5   6"
   end
 end
+
+if __FILE__ == $0
+  g = Mancala.new('Khai', 'Batman')
+  g.play
+end

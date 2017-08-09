@@ -31,11 +31,10 @@ class Board
     until stones.empty?
       cup_idx += 1
       cup_idx = 0 if cup_idx > 13
-      case cup_idx
-      when 6
-        @cups[cup_idx] << stones.pop if current_player_name == @name1
-      when 13
-        @cups[cup_idx] << stones.pop if current_player_name == @name2
+      if cup_idx == 6
+        @cups[6] << stones.pop if current_player_name == @name1
+      elsif cup_idx == 13
+        @cups[13] << stones.pop if current_player_name == @name2
       else
         @cups[cup_idx] << stones.pop
       end
@@ -46,9 +45,9 @@ class Board
 
   def next_turn(ending_cup_idx)
     # helper method to determine what #make_move returns
-    if ending_cup_idx == 6 || ending_cup_idx == 3
+    if ending_cup_idx == 6 || ending_cup_idx == 13
       :prompt
-    elsif @cups[ending_cup_idx] = [:stone]
+    elsif @cups[ending_cup_idx] == [:stone]
       :switch
     else
       ending_cup_idx
@@ -64,8 +63,17 @@ class Board
   end
 
   def one_side_empty?
+    @cups[0..5].all? { |cup| cup.empty? } ||
+    @cups[7..12].all? { |cup| cup.empty? }
   end
 
   def winner
+    player1_score = @cups[6].count
+    player2_score = @cups[13].count
+    if player1_score == player2_score
+      :draw
+    else
+      player1_score > player2_score ? @name1 : @name2
+    end
   end
 end
