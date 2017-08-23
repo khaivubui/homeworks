@@ -33,9 +33,44 @@ with a class attribute containing 'col-' */
   width: 12.5%;
 }
 
+.hamburger-dropdown,
+.hamburger-dropdown ul  {
+  display: none;
+}
+
 /* CSS Day 6 media queries */
 @media all and (max-width: 900px) {
   [class*='col-'] {
     width: 100%;
+  }
+
+  .default-links {
+    display: none;
+  }
+
+  .hamburger-dropdown:hover ul {
+    display: block;
+ }
+
+  .hamburger-dropdown {
+    display: block;
+  }
+
+  .hamburger-dropdown > li {
+    background-image: url('hamburger.png');
+    width: 50px;
+    height: 50px;
+    background-size: 50px 50px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .hamburger-dropdown > ul {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    flex-direction: column;
+    cursor: pointer;
+    box-shadow: black 5px 5px 10px;
   }
 }
