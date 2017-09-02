@@ -11,7 +11,9 @@ reader.question('Would you like some tea?', (res) => {
     console.log(`"${res2}" is no way to answer.`);
     const firstRes = (res === 'yes') ? 'do' : "don't";
     const secondRes = (res2 === 'yes') ? 'do' : "don't";
-    console.log(`So you ${firstRes} want some tea and you ${secondRes} want some biscuits.`);
+    console.log(
+      `So you ${firstRes} want some tea
+      and you ${secondRes} want some biscuits.`);
     reader.close();
   });
 });
