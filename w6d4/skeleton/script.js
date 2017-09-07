@@ -21,9 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- your code here!
   const favSubmission = (e) => {
     e.preventDefault();
-    const ul = document.querySelectorAll('ul#sf-places')[0];
+    const ul = document.querySelector('ul#sf-places');
     const favInput = document
-                     .querySelectorAll('input.favorite-input')[0];
+                     .querySelector('input.favorite-input');
     const newFav = favInput.value;
     const li = document.createElement('li');
     li.textContent = newFav;
@@ -31,13 +31,34 @@ document.addEventListener("DOMContentLoaded", () => {
     favInput.value = '';
   };
 
-  const favoriteForm = document.querySelectorAll('.list-container form')[0];
+  const favoriteForm = document.querySelector('.list-container form');
   favoriteForm.addEventListener("submit", favSubmission);
 
   // adding new photos
 
   // --- your code here!
+  const photoForm = document.querySelector('div.photo-form-container');
+  const toggleForm = (e) => {
+    if (photoForm.className === 'photo-form-container') {
+      photoForm.className = 'photo-form-container hidden';
+    } else {
+      photoForm.className = 'photo-form-container';
+    }
+  };
 
+  const photoSubmission = (e) => {
+    e.preventDefault();
+    const ul = document.querySelector('ul.dog-photos');
+    const li = document.createElement('li');
+    const img = document.createElement('img');
+    img.src = document.querySelector('input.photo-url-input').value;
+    li.appendChild(img);
+    ul.appendChild(li);
+    document.querySelector('input.photo-url-input').value = '';
+  };
 
+  const toggleButton = document.querySelector('button.photo-show-button');
+  toggleButton.addEventListener('click', toggleForm);
 
+  photoForm.addEventListener('submit', photoSubmission);
 });
