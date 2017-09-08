@@ -1,5 +1,3 @@
-
-
 module.exports = {
   entry: './entry.jsx',
   output: {
