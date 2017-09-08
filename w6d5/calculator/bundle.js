@@ -22368,43 +22368,55 @@ var Calculator = function (_React$Component) {
   _createClass(Calculator, [{
     key: 'render',
     value: function render() {
+      var setNum1 = this.setNum1,
+          setNum2 = this.setNum2,
+          add = this.add,
+          subtract = this.subtract,
+          multiply = this.multiply,
+          divide = this.divide,
+          clear = this.clear;
+      var _state = this.state,
+          input1 = _state.input1,
+          input2 = _state.input2,
+          result = _state.result;
+
       return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement('input', { type: 'text',
-          onChange: this.setNum1,
-          value: this.state.input1 }),
+          onChange: setNum1,
+          value: input1 }),
         _react2.default.createElement('input', { type: 'text',
-          onChange: this.setNum2,
-          value: this.state.input2 }),
+          onChange: setNum2,
+          value: input2 }),
         _react2.default.createElement(
           'h1',
           null,
-          this.state.result
+          result
         ),
         _react2.default.createElement(
           'button',
-          { onClick: this.add },
+          { onClick: add },
           '+'
         ),
         _react2.default.createElement(
           'button',
-          { onClick: this.subtract },
+          { onClick: subtract },
           '-'
         ),
         _react2.default.createElement(
           'button',
-          { onClick: this.multiply },
+          { onClick: multiply },
           '*'
         ),
         _react2.default.createElement(
           'button',
-          { onClick: this.divide },
+          { onClick: divide },
           '/'
         ),
         _react2.default.createElement(
           'button',
-          { onClick: this.clear },
+          { onClick: clear },
           'CLEAR'
         )
       );
