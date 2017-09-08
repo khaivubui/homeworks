@@ -22309,48 +22309,57 @@ var Calculator = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Calculator.__proto__ || Object.getPrototypeOf(Calculator)).call(this));
 
     _this.state = {
-      input1: 0,
-      input2: 0,
+      input1: '',
+      input2: '',
       result: 0
     };
 
     _this.setNum1 = function (event) {
       _this.setState({
-        input1: parseInt(event.target.value)
+        input1: event.target.value
       });
     };
 
     _this.setNum2 = function (event) {
       _this.setState({
-        input2: parseInt(event.target.value)
+        input2: event.target.value
       });
     };
 
     _this.add = function (event) {
       event.preventDefault();
       _this.setState({
-        result: _this.state.input1 + _this.state.input2
+        result: parseInt(_this.state.input1) + parseInt(_this.state.input2)
       });
     };
 
     _this.subtract = function (event) {
       event.preventDefault();
       _this.setState({
-        result: _this.state.input1 - _this.state.input2
+        result: parseInt(_this.state.input1) - parseInt(_this.state.input2)
       });
     };
 
     _this.multiply = function (event) {
       event.preventDefault();
       _this.setState({
-        result: _this.state.input1 * _this.state.input2
+        result: parseInt(_this.state.input1) * parseInt(_this.state.input2)
       });
     };
 
     _this.divide = function (event) {
       event.preventDefault();
       _this.setState({
-        result: _this.state.input1 / _this.state.input2
+        result: parseInt(_this.state.input1) / parseInt(_this.state.input2)
+      });
+    };
+
+    _this.clear = function (event) {
+      event.preventDefault();
+      _this.setState({
+        input1: '',
+        input2: '',
+        result: 0
       });
     };
     return _this;
@@ -22362,8 +22371,12 @@ var Calculator = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement('input', { type: 'text', onChange: this.setNum1 }),
-        _react2.default.createElement('input', { type: 'text', onChange: this.setNum2 }),
+        _react2.default.createElement('input', { type: 'text',
+          onChange: this.setNum1,
+          value: this.state.input1 }),
+        _react2.default.createElement('input', { type: 'text',
+          onChange: this.setNum2,
+          value: this.state.input2 }),
         _react2.default.createElement(
           'h1',
           null,
@@ -22388,6 +22401,11 @@ var Calculator = function (_React$Component) {
           'button',
           { onClick: this.divide },
           '/'
+        ),
+        _react2.default.createElement(
+          'button',
+          { onClick: this.clear },
+          'CLEAR'
         )
       );
     }
