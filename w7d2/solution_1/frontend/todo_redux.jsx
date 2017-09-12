@@ -9,6 +9,28 @@ document.addEventListener('DOMContentLoaded', () => {
     JSON.parse(localStorage.state) : {};
   const store = configureStore(preloadedState);
 
+  // store.dispatch = addLoggingToDispatch(store);
+
+  // store = applyMiddlewares(store, addLoggingToDispatch);
+
   const root = document.getElementById('content');
   ReactDOM.render(<Root store={store} />, root);
 });
+
+// const addLoggingToDispatch = store => {
+//   const dispatch = store.dispatch;
+//   return action => {
+//     console.log('Initial state:', store.getState());
+//     console.log('Action:', action);
+//     dispatch(action);
+//     console.log('Ending-state:', store.getState());
+//   };
+// };
+
+// const applyMiddlewares = (store, ...middlewares) => {
+//   let dispatch = store.dispatch;
+//   middlewares.forEach(middleware => {
+//     dispatch = middleware(store)(dispatch);
+//   });
+//   return Object.assign({}, store, { dispatch });
+// };
