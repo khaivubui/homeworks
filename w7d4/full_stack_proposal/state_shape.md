@@ -2,7 +2,7 @@
 
 3 top level reducers:
 * `entities` has all data fetched from server
-  * `entities.channels` has is an object of all channels
+  * `entities.channels` is an object of all channels
   * `entities.directMessages` is an object of all active messages
 * `ui` has ui data
   * `ui.currentViewType` either channel or directMessage
