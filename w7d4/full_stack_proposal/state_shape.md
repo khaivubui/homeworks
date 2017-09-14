@@ -5,7 +5,7 @@
   * `entities.channels` is an object of all channels
   * `entities.directMessages` is an object of all active messages
 * `ui` has ui data
-  * `ui.currentViewType` either channel or directMessage
+  * `ui.currentViewType` either "channel" or "directMessage"
   * `ui.currentViewId` identifies the current active view for rendering purposes
 * `errors` is an array of whatever is being sent back from the server as errors (normally in an array)
 
