@@ -1,0 +1,140 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ---------------------------------------------*/
+
+body {
+  font-size: 16px;
+  font-family: sans-serif;
+  color: #0c2933;
+}
+
+a {
+  cursor: pointer;
+}
+
+/*NAV*/
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 25px;
+}
+
+.nav, .logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo a {
+  font-size: 1.5em;
+  text-decoration: none;
+  font-weight: 100;
+  color: #206b85;
+  letter-spacing: 0.2em;
+}
+
+.nav a, .splash a {
+  font-size: 0.8em;
+  display: inline-block;
+  text-decoration: none;
+  padding: 5px 15px;
+  color: #206b85;
+  border: 2px #206b85 solid;
+  border-radius: 25px;
+  margin-left: 15px;
+}
+
+nav a:hover {
+  color: #2e98bb;
+  border-color: #2e98bb;
+}
+
+/*SPLASH*/
+
+.splash {
+  position: absolute;
+  top: 500px;
+  font-size: 1.5em;
+  color: white;
+  padding: 20px;
+}
+
+.splash a {
+  color: white;
+  border-color: white;
+}
+
+.splash a:hover {
+  color: #c4e5f1;
+  border-color: #c4e5f1;
+}
+
+img {
+  filter: brightness(70%);
+}
+
+/*FOOTER*/
+
+footer {
+  display: flex;
+  justify-content: flex-end;
+  background: #edf7fb;
+  padding: 15px 25px;
+}
+
+footer a {
+  color: #0c2933;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+footer a:hover {
+  color: #247792;
+}
